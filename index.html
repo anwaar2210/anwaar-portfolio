@@ -2,10 +2,11 @@
 <html>
     <title>ANWAAR</title>
     <head>     <meta charset="utf-8">   
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       
     </head>
 <style>
     @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
@@ -16,6 +17,22 @@
         box-sizing: border-box;
         scroll-behavior: smooth;
     }
+
+    .container {
+    width: 90%;          /* يأخذ 90% من حجم أي شاشة فتحتيه منها */
+    max-width: 1200px;   /* لن يزيد حجمه عن 1200 بكسل على شاشات اللابتوب الكبيرة */
+    margin: 0 auto;      /* لجعل المحتوى في منتصف الصفحة تماماً */
+}
+/* هذا الكود سيطبق فقط على الشاشات التي يقل عرضها عن 768 بكسل (الهواتف) */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* تصغير الخط قليلاً ليناسب الهاتف */
+    }
+    .links-container {
+        flex-direction: column; /* ترتيب الأزرار تحت بعضها بدلاً من بجانب بعضها */
+    }
+}
+
    
     
         
