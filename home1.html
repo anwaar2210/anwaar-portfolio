@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+    <title>ANWAAR</title>
+    <head>     <meta charset="utf-8">   
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+    * {
+        margin: 0;
+        padding: 0;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+    }
+   
+    
+        
+        .home {
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+        .home h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .home p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+    .cta {
+        padding: 10px 20px;
+        border: none;
+        background: white;
+        color: black;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+        .cta:hover {
+            background: #ddd;
+          
+        }
+
+
+
+
+    body {
+        background-image: url("photos/bg.jpeg");
+        background-size: auto;
+        font-family: "Montserrat", sans-serif;
+        opacity: 0;
+        transform: scale(0.98);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+        body.loaded {
+            opacity: 1;
+            transform: scale(1);
+        }
+    
+    .navMenu {
+      position: absolute;
+      top: 8%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+    
+    .navMenu a {
+      color: #000000;
+      text-decoration: none;
+      font-size: 1.2em;
+      text-transform: uppercase;
+      font-weight: 500;
+      display: inline-block;
+      width: 80px;
+      -webkit-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+    }
+    
+    .navMenu a:hover {
+      color: #6EA385;
+    }
+    
+    .navMenu .dot {
+      width: 6px;
+      height: 6px;
+      background: #6EA385;
+      border-radius: 50%;
+      opacity: 0;
+      -webkit-transform: translateX(30px);
+      transform: translateX(30px);
+      -webkit-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+    }
+    
+    .navMenu a:nth-child(1):hover ~ .dot {
+      -webkit-transform: translateX(30px);
+      transform: translateX(30px);
+      -webkit-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+      opacity: 1;
+    }
+    
+    .navMenu a:nth-child(2):hover ~ .dot {
+      -webkit-transform: translateX(110px);
+      transform: translateX(110px);
+      -webkit-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+      opacity: 1;
+    }
+    
+    .navMenu a:nth-child(3):hover ~ .dot {
+      -webkit-transform: translateX(200px);
+      transform: translateX(200px);
+      -webkit-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+      opacity: 1;
+    }
+    
+    .navMenu a:nth-child(4):hover ~ .dot {
+      -webkit-transform: translateX(285px);
+      transform: translateX(285px);
+      -webkit-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+      opacity: 1;
+    }
+
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    li a {
+      display: block;
+      width: 60px;
+      background-color: #dddddd;
+    }
+    
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      
+    }
+    
+    th, td {
+      text-align: left;
+      padding: 16px;
+      right: 10px;
+    }
+
+
+/* CSS */
+.button-86 {
+  all: unset;
+  width: 100px;
+  height: 30px;
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  position: relative;
+  color: #f0f0f0;
+  cursor: pointer;
+  z-index: 1;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-left: 10%;
+  
+}
+
+.button-86::after,
+.button-86::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -99999;
+  transition: all .4s;
+}
+
+.button-86::before {
+  transform: translate(0%, 0%);
+  width: 100%;
+  height: 100%;
+  background: #28282d;
+  border-radius: 10px;
+}
+
+.button-86::after {
+  transform: translate(10px, 10px);
+  width: 35px;
+  height: 35px;
+  background: #ffffff15;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 50px;
+}
+
+.button-86:hover::before {
+  transform: translate(5%, 20%);
+  width: 110%;
+  height: 110%;
+}
+
+.button-86:hover::after {
+  border-radius: 10px;
+  transform: translate(0, 0);
+  width: 100%;
+  height: 100%;
+}
+
+.button-86:active::after {
+  transition: 0s;
+  transform: translate(0, 5%);
+}
+
+    .work-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .stats-container {
+        display: flex;
+        gap: 20px;
+        background-color: #ffffff; /* لون البطاقة الداكن */
+        padding: 6px;
+        border-radius: 12px;
+        
+    }
+
+    .stat-item {
+        text-align: center;
+        min-width: 80px;
+        position: relative;
+    }
+
+        
+
+    .number {
+        display: block;
+        font-size: 19px;
+        font-weight: bold;
+        color: black; /* اللون الأخضر للنص */
+        margin-bottom: 5px;
+    }
+
+    .label {
+        color: #888; /* لون رمادي للنصوص الوصفية */
+        font-size: 13px;
+    }
+
+
+
+    .marquee-container {
+        background-color: #000; /* لون الخلفية الأسود */
+        overflow: hidden;
+        white-space: nowrap;
+        padding: 15px 0;
+        transform: rotate(-2deg); /* إمالة الشريط مثل الصورة */
+        width: 110%; /* عرض أكبر قليلاً لتغطية الحواف عند الميلان */
+        margin-left: -5%;
+        display: flex;
+        align-items: center;
+    }
+
+    /* حركة النص */
+    .marquee-content {
+        display: inline-block;
+        animation: scroll 20s linear infinite;
+        color: #fff; /* لون النص أبيض */
+        font-family: sans-serif;
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+        .marquee-content span {
+            margin: 0 40px; /* المسافة بين الكلمات */
+            text-transform: capitalize;
+        }
+
+    /* تعريف الحركة من اليمين لليسار */
+    @keyframes scroll {
+        from {
+            transform: translateX(0);
+        }
+
+        to {
+            transform: translateX(-50%);
+        }
+    }
+
+
+    /* الحاوية الرئيسية */
+    .main-container {
+        display: flex; /* تفعيل خاصية فليكس */
+        flex-wrap: wrap; /* السماح للعناصر بالنزول لسطر جديد إذا لم تكف المساحة */
+        gap: 20px; /* المسافة بين البوكسات */
+        justify-content: center; /* توسيط البوكسات في منتصف الصفحة */
+        padding: 20px;
+    }
+
+    /* تنسيق البوكسات */
+    .box {
+        background-color: #3498db;
+        color: white;
+        width: calc(50% - 10px); /* عرض البوكس (50% ناقصاً مساحة الـ gap) */
+        height: 180px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    /* لجعل الشاشات الصغيرة تظهر بوكس واحد فقط (اختياري) */
+    @media (max-width: 600px) {
+        .box {
+            width: 100%;
+        }
+    }
+ 
+   
+    </style>
+    
+<body>
+
+    <nav class="navMenu">
+        <a href="#home">Home</a>
+        <a href="#About">About</a>
+        <a href="#Achievements">Honors</a>
+        <div class="dot"></div>
+    </nav>
+    <img src="photos/logo-2-removebg-preview.png" style="width: 15%;">
+
+
+
+    <table>
+        <tr>
+            <th>
+
+                <div style="margin: 4%;">
+
+
+
+                    <h5>Hi I am</h5>
+                    <h2>Anwaar Abdullah Alsaadi</h2>
+                    <br>
+                    <h1 style="color: #6EA385; width: 500px;">Software Developer</h1>
+
+
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <span class="number">2+</span>
+                            <span class="label">Awards</span>
+                        </div>
+
+                        <div class="stat-item">
+                            <span class="number">5+</span>
+                            <span class="label">Certificates</span>
+                        </div>
+
+                        <div class="stat-item">
+                            <span class="number">4+</span>
+                            <span class="label">Projects</span>
+                        </div>
+                    </div>
+
+
+                </div>
+            </th>
+        </tr>
+        <tr>
+        <tr>
+            <th>
+
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <button class="button-86" role="button">Hire Me</button><br>
+                <a href="photos/cv.jpg" download='computer' class="button-86"><i class="fa fa-download"></i>My CV</button></a>
+
+            </td>
+            <td style="left: 100%;">
+                <ul>
+                    <li><img src="photos/175-envelope-arrow-up.gif" style="width: 6%;"></li>
+                    <li><img src="photos/2549-logo-linkedin.gif" style="width:6%;"></li>
+
+
+                </ul>
+            </td>
+
+        </tr></tr>
+    </table>
+
+
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <!-- كرر النصوص لضمان استمرارية الحركة -->
+            <span>UI design</span>
+            <span>HTML/CSS</span>
+            <span>Programmer</span>
+            <span>Designer</span>
+            <span>UI design</span>
+            <span>HTML/CSS</span>
+            <span>Programmer</span>
+            <span>Designer</span>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener("load", () => {
+        document.body.classList.add("loaded");
+        });
+    </script>
+    <!-- الفسم الاولى ................................................................................................... -->
+    <br /><br />
+    <section style="background-color:white;" id="About">
+        <div style="display: flex; gap: 10px;">
+            <div style="flex: 1; padding: 20px; ">
+                <br /><br /><br />
+                <h1 style="text-align: center; -webkit-text-stroke: 2px black; color: white;">about me</h1>
+                <br /><br />
+                <h4 style="text-align: center;">
+                    Passionate and self-driven individual<br /> with a strong interest in technology, web development, and digital creativity. Continuously
+                    focused on developing skills and gaining certifications to build a professional and impactful career.
+                </h4>
+            </div>
+
+
+
+            <div style="flex: 1;  padding: 20px;">
+
+                <div class="main-container">
+                    <div class="box one" style="background-image: url('1.png'); background-size: cover;">
+
+                        <h2 style="color: black; text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #0fa, 0 0 30px #0fa, 0 0 40px #0fa;">versatile </h2><br />
+
+                    </div>
+                    <div class="box" style="background-image: url('2.png'); background-size: cover; "><h2 style="color: black; text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #0fa, 0 0 30px #0fa, 0 0 40px #0fa; ">Fast-Learning </h2></div>
+                    <div class="box" style="background-image: url('3.png'); background-size: cover;"><h2 style="color: black; text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #0fa, 0 0 30px #0fa, 0 0 40px #0fa; ">Professional <br />Presence </h2></div>
+                    <div class="box" style="background-image: url('4.png'); background-size: cover;"><h2 style="color: black; text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #0fa, 0 0 30px #0fa, 0 0 40px #0fa; ">Persistent </h2></div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+    </section>
+
+    <style>
+        .agenda-container {
+            display: flex; /* Lines items up side-by-side */
+            gap: 20px;
+            background-color: #0a0e14;
+            padding: 50px;
+        }
+
+        .agenda-item {
+            flex: 1;
+            color: white;
+            border-left: 2px solid var(--accent); /* Vertical line */
+            padding-left: 15px;
+        }
+
+            /* Stagger every even item downwards */
+            .agenda-item:nth-child(even) {
+                margin-top: 60px;
+            }
+
+        .number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+    </style>
+    
+    <div id="Achievements" class="agenda-container">
+
+        <br /><br /><h1 style="text-align: center; -webkit-text-stroke: 2px white; color: black;">Horons</h1><br />
+        <div class="agenda-item" style="--accent: #ff4d6d;">
+
+            <div class="number">2022</div>
+            <h3>Programing </h3>
+            <p>Second Place,  Ideathon for Oman</p>
+        </div>
+        <div class="agenda-item" style="--accent: #F2F2F2;">
+            <div class="number">2023</div>
+            <h3>Bachelor of Software Development</h3>
+            <p>University of Technology and Applied Sciences</p>
+        </div>
+        <!-- Repeat for items 02 to 06 -->
+
+        <div class="agenda-item" style="--accent: #72A684;">
+            <div class="number">2024</div>
+            <h3>
+                Artificial Intelligence, Metaverse and
+                Internet of Things | Tech Mahindra -
+                Makers La
+            </h3>
+            <p>Third Place, Ideathon for Oman</p>
+        </div>
+        <div class="agenda-item" style="--accent: #568C69;">
+            <div class="number">2026</div>
+            <h3>IT for Business Success</h3>
+
+        </div>
+    </div>
+
+
+</body>
+        </html>
+
+
